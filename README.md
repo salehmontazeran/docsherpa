@@ -5,6 +5,4 @@ Docs Sherpa is an open-source project that combines Retrieval-Augmented Generati
 ## Features
 
 - Retrieval-Augmented Generation (RAG) for efficient document retrieval
-- Large Language Model (LLM) integration for natural language understanding and generation
 - Focused on technical documentation for developers
-- Easy-to-use Python interface
