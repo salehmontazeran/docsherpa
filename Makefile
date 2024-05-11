@@ -19,6 +19,9 @@ deps.compile:
 deps.sync:
 	$(VEN_PYTHON) -m piptools sync $(REQUIREMENTS_FILE)
 
+app.run:
+	$(VEN_PYTHON) -m streamlit run src/main.py
+
 # build:
 # 	$(DOCKER_COMPOSE) build --no-cache
 
