@@ -1,8 +1,8 @@
-SHELL 				= /bin/sh
-VENV				= venv
-VEN_PYTHON			= $(VENV)/bin/python3.10
-SYSTEM_PYTHON		= $(or $(shell which python3.10), $(shell which python3))
-REQUIREMENTS_FILE	= requirements.txt
+SHELL=/bin/sh
+VENV=venv
+VEN_PYTHON=$(VENV)/bin/python3.10
+SYSTEM_PYTHON=$(or $(shell which python3.10), $(shell which python3))
+REQUIREMENTS_FILE=requirements.txt
 
 .PHONY: help build run tests clean lint
 
