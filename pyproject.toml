@@ -1,0 +1,118 @@
+[project]
+name = "docsherpa"
+version = "0.1.0"
+authors = [{ name = "Saleh Montazeran",  email = "salehmontazeran61@email.com" }]
+keywords = ["documentation", "chatbot", "AI", "technical docs"]
+dependencies = [
+    "ruff>=0.4.1",
+    "black>=24.4.2",
+    "isort>=5.13.2",
+    "mypy>=1.9",
+    "llama-index==0.10.34",
+]
+
+[build-system]
+requires = [
+    "pip-tools>=7.4.1",
+]
+
+[tool.pip-tools]
+generate_hashes = true
+
+[tool.ruff]
+# Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
+select = ["E", "F"]
+ignore = []
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = ["A", "B", "C", "D", "E", "F", "G", "I", "N", "Q", "S", "T", "W", "ANN", "ARG", "BLE", "COM", "DJ", "DTZ", "EM", "ERA", "EXE", "FBT", "ICN", "INP", "ISC", "NPY", "PD", "PGH", "PIE", "PL", "PT", "PTH", "PYI", "RET", "RSE", "RUF", "SIM", "SLF", "TCH", "TID", "TRY", "UP", "YTT"]
+unfixable = ["F401"]
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".vscode",
+    "devops",
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".mypy_cache",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "__pycache_",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "venv",
+    "migrations",
+]
+
+# Same as Black.
+line-length = 100
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Assume Python 3.10.
+target-version = "py310"
+
+
+[tool.ruff.mccabe]
+max-complexity = 8
+
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 100
+src_paths = ["src"]
+
+[tool.mypy]
+python_version = "3.10"
+plugins = [
+    "pydantic.mypy",
+    "sqlalchemy.ext.mypy.plugin"
+]
+files = ['*.py',]
+warn_redundant_casts = true
+warn_unused_ignores = true
+show_error_codes = true
+namespace_packages = true
+exclude = ["venv", ".tox"]
+
+[[tool.mypy.overrides]]
+module = [
+    "websockets.exceptions",
+]
+ignore_missing_imports = true
