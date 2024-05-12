@@ -1,7 +1,7 @@
 ---
 name: Agile Task
 about: Use for create Agile tasks
-title: "[Task]"
+title: ''
 labels: Task
 assignees: ''
 
