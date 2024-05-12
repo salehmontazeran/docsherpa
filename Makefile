@@ -14,7 +14,7 @@ deps.require:
 	$(VEN_PYTHON) -m pip install pip-tools wheel setuptools
 
 deps.compile:
-	$(VEN_PYTHON) -m piptools compile -o $(REQUIREMENTS_FILE) --upgrade
+	$(VEN_PYTHON) -m piptools compile --allow-unsafe -o $(REQUIREMENTS_FILE) --upgrade
 
 deps.sync:
 	$(VEN_PYTHON) -m piptools sync $(REQUIREMENTS_FILE)
@@ -22,6 +22,8 @@ deps.sync:
 app.run:
 	$(VEN_PYTHON) -m streamlit run src/main.py
 
+milvus.up:
+	bash standalone_embed.sh start
 # build:
 # 	$(DOCKER_COMPOSE) build --no-cache
 
