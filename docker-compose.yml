@@ -1,7 +1,5 @@
 # https://milvus.io/docs/v2.0.x/install_standalone-docker.md
 
-version: '3.5'
-
 services:
   etcd:
     container_name: milvus-etcd

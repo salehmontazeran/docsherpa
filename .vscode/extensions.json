@@ -6,5 +6,6 @@
         "ms-python.black-formatter",
         "ms-python.isort",
         "charliermarsh.ruff",
+        "tamasfe.even-better-toml",
     ]
 }

@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 def _map_file_extension_to_reader() -> dict[str, type[BaseReader]]:
     try:
-        from llama_index.readers.file.flat import FlatReader  # type: ignore
+        from llama_index.readers.file.flat import FlatReader
     except ImportError as e:
         raise ImportError("`llama-index-readers-file` package not found") from e
 

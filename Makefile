@@ -14,16 +14,30 @@ deps.require:
 	$(VEN_PYTHON) -m pip install pip-tools wheel setuptools
 
 deps.compile:
-	$(VEN_PYTHON) -m piptools compile --allow-unsafe -o $(REQUIREMENTS_FILE) --upgrade
+	$(VEN_PYTHON) -m piptools compile --upgrade --allow-unsafe -o $(REQUIREMENTS_FILE)
 
 deps.sync:
 	$(VEN_PYTHON) -m piptools sync $(REQUIREMENTS_FILE)
 
+install:
+	make deps.venv && make deps.require && make deps.sync
+
 app.run:
+	export PYTHONPATH=$(pwd)
 	$(VEN_PYTHON) -m streamlit run src/main.py
 
 milvus.up:
 	bash standalone_embed.sh start
+
+clean:
+	find . -type f -name '*.pyc' -delete
+	find . -type d -name '__pycache__' -delete
+	rm -rf .pytest_cache
+
+lint:
+	$(VEN_PYTHON) -m ruff check src
+	$(VEN_PYTHON) -m mypy --check-untyped-defs src
+
 # build:
 # 	$(DOCKER_COMPOSE) build --no-cache
 
@@ -45,8 +59,3 @@ milvus.up:
 
 # test:
 # 	$(DOCKER_EXEC) pytest $(arg)
-
-# clean:
-# 	find . -type f -name '*.pyc' -delete
-# 	find . -type d -name '__pycache__' -delete
-# 	rm -rf .pytest_cache
