@@ -1,8 +1,11 @@
 import streamlit as st
+from dotenv import load_dotenv
 
 from src.chat import create_chat_engine
 
 if __name__ == "__main__":
+    load_dotenv()
+
     if "chat_engine" not in st.session_state.keys():
         st.session_state.chat_engine = create_chat_engine()
 

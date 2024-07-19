@@ -24,10 +24,10 @@ install:
 
 app.run:
 	export PYTHONPATH=$(pwd)
+	unset HTTP_PROXY
+	unset HTTPS_PROXY
+	unset ALL_PROXY
 	$(VEN_PYTHON) -m streamlit run src/main.py
-
-milvus.up:
-	bash standalone_embed.sh start
 
 clean:
 	find . -type f -name '*.pyc' -delete
