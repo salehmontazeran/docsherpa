@@ -19,6 +19,9 @@ deps.compile:
 deps.sync:
 	$(VEN_PYTHON) -m piptools sync $(REQUIREMENTS_FILE)
 
+deps.add:
+	make deps.compile && make deps.sync
+
 install:
 	make deps.venv && make deps.require && make deps.sync
 
