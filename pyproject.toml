@@ -10,15 +10,12 @@ dependencies = [
     "ipykernel",
     "python-dotenv",
     "streamlit",
-    "llama-index",
-    "llama-index-vector-stores-chroma",
-    "llama-index-embeddings-openai",
+    "chromadb",
     "deepeval",
     "langchain",
     "langchain_community",
-    "chromadb",
-    "unstructured[md]",
     "langchain_openai",
+    "unstructured[md]",
 ]
 
 [build-system]

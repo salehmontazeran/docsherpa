@@ -33,6 +33,7 @@ app.run:
 	$(VEN_PYTHON) -m streamlit run src/main.py
 
 clean:
+	find . -type d -name '*egg-info' -exec rm -rv {} +
 	find . -type f -name '*.pyc' -delete
 	find . -type d -name '__pycache__' -delete
 	rm -rf .pytest_cache
