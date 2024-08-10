@@ -3,15 +3,20 @@ name = "docsherpa"
 version = "0.1.0"
 keywords = ["documentation", "chatbot", "AI", "technical docs"]
 dependencies = [
-    "ruff>=0.4.1",
-    "black>=24.4.2",
-    "isort>=5.13.2",
-    "mypy>=1.9",
-    "python-dotenv>=1.0.1",
-    "streamlit>=1.36.0",
-    "llama-index==0.10.56",
-    "llama-index-vector-stores-chroma==0.1.10",
-    "llama-index-embeddings-openai==0.1.11",
+    "ruff",
+    "black",
+    "isort",
+    "mypy",
+    "ipykernel",
+    "python-dotenv",
+    "streamlit",
+    "chromadb",
+    "deepeval",
+    "langchain",
+    "langchain_community",
+    "langchain_openai",
+    "unstructured[md]",
+    "langchain-chroma",
 ]
 
 [build-system]
@@ -21,6 +26,9 @@ requires = [
 
 [tool.pip-tools]
 generate_hashes = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [tool.ruff]
 # Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
@@ -108,7 +116,6 @@ disallow_untyped_defs = true
 disallow_untyped_calls = true
 plugins = [
     "pydantic.mypy",
-    "sqlalchemy.ext.mypy.plugin"
 ]
 mypy_path = "src"
 # files = ['*.py',]
@@ -116,7 +123,7 @@ warn_redundant_casts = true
 warn_unused_ignores = true
 show_error_codes = true
 namespace_packages = true
-exclude = ["venv", ".tox"]
+exclude = ["venv"]
 
 [[tool.mypy.overrides]]
 module = [

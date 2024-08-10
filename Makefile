@@ -19,6 +19,9 @@ deps.compile:
 deps.sync:
 	$(VEN_PYTHON) -m piptools sync $(REQUIREMENTS_FILE)
 
+deps.add:
+	make deps.compile && make deps.sync
+
 install:
 	make deps.venv && make deps.require && make deps.sync
 
@@ -30,8 +33,10 @@ app.run:
 	$(VEN_PYTHON) -m streamlit run src/main.py
 
 clean:
+	find . -type d -name '*egg-info' -exec rm -rv {} +
 	find . -type f -name '*.pyc' -delete
 	find . -type d -name '__pycache__' -delete
+	rm -rf .mypy_cache
 	rm -rf .pytest_cache
 
 lint:
