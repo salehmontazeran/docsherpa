@@ -36,6 +36,7 @@ clean:
 	find . -type d -name '*egg-info' -exec rm -rv {} +
 	find . -type f -name '*.pyc' -delete
 	find . -type d -name '__pycache__' -delete
+	rm -rf .mypy_cache
 	rm -rf .pytest_cache
 
 lint:

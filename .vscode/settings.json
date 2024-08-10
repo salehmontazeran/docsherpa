@@ -11,11 +11,11 @@
         "--profile",
         "black"
     ],
-    "python.testing.pytestArgs": [
-        "tests"
-    ],
+    // "python.testing.pytestArgs": [
+    //     "tests"
+    // ],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true,
     "python.analysis.autoImportCompletions": true,
-    "python.analysis.typeCheckingMode": "off",
+    // "python.testing.pytestEnabled": true,
+    "python.analysis.typeCheckingMode": "basic",
 }

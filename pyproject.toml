@@ -16,6 +16,7 @@ dependencies = [
     "langchain_community",
     "langchain_openai",
     "unstructured[md]",
+    "langchain-chroma",
 ]
 
 [build-system]
@@ -25,6 +26,9 @@ requires = [
 
 [tool.pip-tools]
 generate_hashes = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [tool.ruff]
 # Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
@@ -112,7 +116,6 @@ disallow_untyped_defs = true
 disallow_untyped_calls = true
 plugins = [
     "pydantic.mypy",
-    "sqlalchemy.ext.mypy.plugin"
 ]
 mypy_path = "src"
 # files = ['*.py',]
@@ -120,7 +123,7 @@ warn_redundant_casts = true
 warn_unused_ignores = true
 show_error_codes = true
 namespace_packages = true
-exclude = ["venv", ".tox"]
+exclude = ["venv"]
 
 [[tool.mypy.overrides]]
 module = [
